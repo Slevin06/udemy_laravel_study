@@ -18,6 +18,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
@@ -159,6 +162,7 @@
       <workItem from="1608638469658" duration="49000" />
       <workItem from="1614685899292" duration="1943000" />
       <workItem from="1615464939480" duration="2185000" />
+      <workItem from="1618147604615" duration="388000" />
     </task>
     <servers />
   </component>
