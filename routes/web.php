@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('books');
-});
+//Route::get('/', function () {
+//    $books = Book::all();
+//    return view('books', ['books' => $books]);
+//});
+
+Route::get('/', 'BookController@index');

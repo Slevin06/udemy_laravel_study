@@ -55,7 +55,7 @@
                         <table class="table table-striped task-table">
                             <thead>
                             <th>Book</th>
-                            <th>$nbsp;</th>
+                            <th>&nbsp;</th>
                             </thead>
                             <tbody>
                             @foreach($books as $book)
