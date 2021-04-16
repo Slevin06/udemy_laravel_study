@@ -19,4 +19,8 @@ use Illuminate\Http\Request;
 //    return view('books', ['books' => $books]);
 //});
 
+// トップ
 Route::get('/', 'BookController@index');
+
+// 書籍データ投稿
+Route::post('/book', 'BookController@create');
