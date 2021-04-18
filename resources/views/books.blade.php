@@ -54,9 +54,14 @@
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
-                            <th>Book</th>
+                            <th>Book Title</th>
                             <th>&nbsp;</th>
                             </thead>
+                            @if (session('success'))
+                                <div style="color: red">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                             <tbody>
                             @foreach($books as $book)
                                 <tr>
@@ -69,10 +74,10 @@
                                         <form action="/book/{{$book->id}}"
                                               method="post">
                                             @csrf
-                                            {{method_field('DELETE')}}
 
                                             <button type="submit"
-                                                    class="btn btn-danger">
+                                                    class="btn btn-danger"
+                                                    id="delete-btn">
                                                 <i class="fa fa-trash"></i>削除
                                             </button>
                                         </form>
@@ -85,5 +90,17 @@
                 </div>
             @endif
         </div>
+        <script>
+            $(function () {
+                $('#delete-btn').on("click", function () {
+                    let result = window.confirm('削除してもよろしいですか？');
+                    if (result) {
+                        $('#delete-btn').submit();
+                    } else {
+                        return false;
+                    }
+                });
+            });
+        </script>
     </div>
 @endsection

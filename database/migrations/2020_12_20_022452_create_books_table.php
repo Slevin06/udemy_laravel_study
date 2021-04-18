@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title'); //書籍名カラム追加
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

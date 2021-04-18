@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class BookController extends Controller
 {
@@ -25,5 +26,13 @@ class BookController extends Controller
         $book->fill($createData)->save();
 
         return redirect('/');
+    }
+
+    // 削除
+    public function delete(Request $request)
+    {
+        $book = new Book;
+        $book->find($request->id)->delete();
+        return redirect('/')->with('success', '削除完了しました');
     }
 }

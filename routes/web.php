@@ -2,6 +2,7 @@
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::get('/', 'BookController@index');
 
 // 書籍データ投稿
 Route::post('/book', 'BookController@create');
+
+// 削除
+Route::post('/book/{id}', 'BookController@delete');
