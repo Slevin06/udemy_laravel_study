@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+
 
 class BookController extends Controller
 {
+    // auth
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // top
     public function index()
     {

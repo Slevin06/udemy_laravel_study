@@ -2,6 +2,7 @@
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 // トップ
+//Route::get('/', 'BookController@index')->middleware('auth');
 Route::get('/', 'BookController@index');
 
 // 書籍データ投稿
