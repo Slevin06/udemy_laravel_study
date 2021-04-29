@@ -39,7 +39,7 @@
                             <label for=""
                                    class="col-sm-3 control-label">
                                 Book Image
-                                <input type="file" name="book-img"
+                                <input type="file" name="book_image"
                                        accept=".png,.jpg,.jpeg,image/png,image/jpg">
                             </label>
 
@@ -58,7 +58,7 @@
             </div>
 
             {{-- books --}}
-            @if(isset($books))
+            @if(isset($bookAttributes))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         書籍一覧
@@ -68,24 +68,41 @@
                         <table class="table table-striped task-table">
                             <thead>
                             <th>Book Title</th>
+                            <th>Book Image</th>
                             <th>&nbsp;</th>
                             </thead>
-                            @if (session('success'))
+                            @if (session('create success'))
                                 <div style="color: red">
-                                    {{ session('success') }}
+                                    {{ session('create success') }}
+                                </div>
+                            @elseif (session('delete success'))
+                                <div style="color: red">
+                                    {{ session('delete success') }}
                                 </div>
                             @endif
                             <tbody>
-                            @foreach($books as $book)
+                            @foreach($bookAttributes as $bookAttribute)
                                 <tr>
                                     <td class="table-text">
-                                        <div>{{$book->title}}</div>
+                                        <div>{{$bookAttribute->title}}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        @if (!empty($bookAttribute->img_name))
+                                            <img
+                                                src="{{ asset('storage/images/' . $bookAttribute->img_name) }}"
+                                                alt="書影">
+                                        @else
+                                            <img
+                                                src="{{ asset('storage/images/default.png') }}"
+                                                alt="デフォルト画像">
+                                        @endif
                                     </td>
 
                                     {{-- task delete button --}}
                                     <td>
-                                        <form action="/book/{{$book->id}}"
-                                              method="post">
+                                        <form
+                                            action="/book/{{$bookAttribute->id}}"
+                                            method="post">
                                             @csrf
 
                                             <button type="submit"
